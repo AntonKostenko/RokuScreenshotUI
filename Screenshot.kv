@@ -1,0 +1,43 @@
+#kivy 1.11.1
+<Button>
+    background_color: (0,0,0,1) if self.state == 'normal' else (0,0,0, 0.5)
+    font_size:16
+    bold:True
+
+
+<MyGrid>:
+    ip_address: ip_address
+    dev_password: dev_password
+    screenshot: screenshot
+
+    canvas:
+        Color:
+            rgb: 45/255, 143/255, 213/255
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    BoxLayout:
+        size: 450, 200
+        orientation: 'vertical'
+        Label:
+            font_size:18
+            bold: True
+            color: 0,0,0,1
+            halign: 'center'
+            text: root.main_text
+        TextInput:
+            id: ip_address
+            halign: 'center'
+            multiline: False
+            hint_text: 'Enter IP Address'
+        TextInput:
+            id: dev_password
+            halign: 'center'
+            multiline: False
+            hint_text: 'Enter Dev Password'
+            password: True
+        Button:
+            id: screenshot
+            text: 'GO'
+            on_press: root.screen_shot_button()
